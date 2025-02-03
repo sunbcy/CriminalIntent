@@ -9,9 +9,10 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-//import android.widget.RadioGroup;
 
 import androidx.fragment.app.Fragment;
+
+import java.util.UUID;
 
 public class CrimeFragment extends Fragment {
     private Crime mCrime;
@@ -20,7 +21,9 @@ public class CrimeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCrime = new Crime();
+//        mCrime = new Crime();
+        UUID crimeId = (UUID) getActivity().getIntent().getSerializableExtra(MainActivity.EXTRA_CRIME_ID);
+        mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
     }
 
     @Override
