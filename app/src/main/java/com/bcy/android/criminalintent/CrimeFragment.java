@@ -36,7 +36,7 @@ public class CrimeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 //        mCrime = new Crime();
 //        UUID crimeId = (UUID) getActivity().getIntent().getSerializableExtra(MainActivity.EXTRA_CRIME_ID);
-        UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
+        UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);  // 从argument中获取crime ID
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
     }
 
