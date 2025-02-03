@@ -13,7 +13,7 @@ import java.util.UUID;
 //import androidx.fragment.app.FragmentManager;
 
 public class MainActivity extends SingleFragmentActivity {
-    public static final String EXTRA_CRIME_ID = "com.bcy.android.criminalintent_crime_id";
+    private static final String EXTRA_CRIME_ID = "com.bcy.android.criminalintent_crime_id";
 
     public static Intent newIntent(Context packageContext, UUID crimeId) {
         Intent intent = new Intent(packageContext, MainActivity.class);
@@ -38,6 +38,8 @@ public class MainActivity extends SingleFragmentActivity {
 //    }
     @Override
     protected Fragment createFragment() {
-        return new CrimeFragment();
+//        return new CrimeFragment();
+        UUID crimeId = (UUID) getIntent().getSerializableExtra(EXTRA_CRIME_ID);
+        return CrimeFragment.newInstance(crimeId);
     }
 }
