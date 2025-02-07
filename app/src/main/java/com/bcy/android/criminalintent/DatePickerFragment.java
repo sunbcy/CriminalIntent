@@ -2,6 +2,7 @@ package com.bcy.android.criminalintent;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DatePickerFragment extends DialogFragment {
+    public static final String EXTRA_DATE = "com.bcy.android.criminalintent.date";
 
     private static final String ARG_DATE = "date";
     private DatePicker mDatePicker;
@@ -47,5 +49,17 @@ public class DatePickerFragment extends DialogFragment {
                 .setTitle(R.string.date_picker_title)
                 .setPositiveButton(android.R.string.ok, null)
                 .create();
+    }
+
+    private void sendResult(int resultCode, Date date) {
+        if (getTargetFragment() == null) {
+            return;
+        }
+
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_DATE, date);
+
+        getTargetFragment()
+                .onActivityResult(getTargetRequestCode(), resultCode, intent);
     }
 }
