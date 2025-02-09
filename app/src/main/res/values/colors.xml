@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Primary color (used for app bar and key elements) -->
+    <color name="colorPrimary">#6200EE</color>
+    <!-- Darker version of the primary color (used for status bar) -->
+    <color name="colorPrimaryDark">#3700B3</color>
+    <!-- Accent color (used for buttons, switches, etc.) -->
+    <color name="colorAccent">#03DAC5</color>
 </resources>
