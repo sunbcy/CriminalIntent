@@ -21,6 +21,7 @@ import java.util.List;
 public class CrimeListFragment extends Fragment {
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
+    private boolean mSubtitleVisible;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
