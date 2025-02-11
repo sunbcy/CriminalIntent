@@ -101,9 +101,7 @@ public class CrimeListFragment extends Fragment {
         if (savedInstanceState != null) {
             mSubtitleVisible = savedInstanceState.getBoolean(SAVED_SUBTITLE_VISIBLE);
         }
-
         updateUI();
-
         return view;
     }
 
@@ -146,7 +144,6 @@ public class CrimeListFragment extends Fragment {
 //            default:
 //                return super.onOptionsItemSelected(item);
 //        }
-
 
         if (item.getItemId() == NEW_CRIME) {
             Crime crime = new Crime();
