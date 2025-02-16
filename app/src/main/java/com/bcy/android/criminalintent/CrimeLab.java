@@ -66,7 +66,8 @@ public class CrimeLab {
                 new String[] { uuidString });
     }
 
-    private Cursor queryCrimes(String whereClause, String[] whereArgs) {
+//    private Cursor queryCrimes(String whereClause, String[] whereArgs) {
+    private CrimeCursorWrapper queryCrimes(String whereClause, String[] whereArgs) {
         Cursor cursor = mDatabase.query(
                 CrimeDbSchema.CrimeTable.NAME,
                 null,
@@ -77,7 +78,8 @@ public class CrimeLab {
                 null
                 );
 
-        return cursor;
+//        return cursor;
+        return new CrimeCursorWrapper(cursor);
     }
 
 
