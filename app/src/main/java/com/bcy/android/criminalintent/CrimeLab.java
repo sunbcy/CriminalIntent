@@ -70,7 +70,21 @@ public class CrimeLab {
 //            }
 //        }
 
-        return null;
+//        return null;
+        CrimeCursorWrapper cursor = queryCrimes(
+                CrimeDbSchema.CrimeTable.Cols.UUID + " = ?",
+                new String[] { id.toString() }
+        );
+
+        try {
+            if (cursor.getCount() == 0) {
+                return null;
+            }
+            cursor.moveToFirst();
+            return cursor.getCrime();
+        } finally {
+            cursor.close();
+        }
     }
 
     public void updateCrime(Crime crime) {
