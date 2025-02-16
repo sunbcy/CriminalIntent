@@ -2,6 +2,7 @@ package com.bcy.android.criminalintent;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -64,6 +65,21 @@ public class CrimeLab {
                 CrimeDbSchema.CrimeTable.Cols.UUID + " = ?",
                 new String[] { uuidString });
     }
+
+    private Cursor queryCrimes(String whereClause, String[] whereArgs) {
+        Cursor cursor = mDatabase.query(
+                CrimeDbSchema.CrimeTable.NAME,
+                null,
+                whereClause,
+                whereArgs,
+                null,
+                null,
+                null
+                );
+
+        return cursor;
+    }
+
 
     private static ContentValues getContentValues(Crime crime) {
         ContentValues values = new ContentValues();
