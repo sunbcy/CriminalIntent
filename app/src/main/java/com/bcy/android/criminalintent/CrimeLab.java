@@ -1,5 +1,6 @@
 package com.bcy.android.criminalintent;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -51,5 +52,15 @@ public class CrimeLab {
 //        }
 
         return null;
+    }
+
+    private static ContentValues getContentValues(Crime crime) {
+        ContentValues values = new ContentValues();
+        values.put(CrimeDbSchema.CrimeTable.Cols.UUID, crime.getId().toString());
+        values.put(CrimeDbSchema.CrimeTable.Cols.TITLE, crime.getTitle());
+        values.put(CrimeDbSchema.CrimeTable.Cols.DATE, crime.getDate().toString());
+        values.put(CrimeDbSchema.CrimeTable.Cols.SOLVED, crime.isSolved() ? 1:0);
+
+        return values;
     }
 }
