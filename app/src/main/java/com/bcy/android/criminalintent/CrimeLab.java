@@ -57,6 +57,14 @@ public class CrimeLab {
         return null;
     }
 
+    public void updateCrime(Crime crime) {
+        String uuidString = crime.getId().toString();
+        ContentValues values = getContentValues(crime);
+        mDatabase.update(CrimeDbSchema.CrimeTable.NAME, values,
+                CrimeDbSchema.CrimeTable.Cols.UUID + " = ?",
+                new String[] { uuidString });
+    }
+
     private static ContentValues getContentValues(Crime crime) {
         ContentValues values = new ContentValues();
         values.put(CrimeDbSchema.CrimeTable.Cols.UUID, crime.getId().toString());
